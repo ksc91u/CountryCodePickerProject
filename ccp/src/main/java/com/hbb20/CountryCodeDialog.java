@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -74,11 +75,20 @@ class CountryCodeDialog {
     openCountryCodeDialog(final CountryCodePicker codePicker, final String countryNameCode) {
         final Context context = codePicker.getContext();
         final Dialog dialog = new Dialog(context);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+
         codePicker.refreshCustomMasterList();
         codePicker.refreshPreferredCountries();
         List<CCPCountry> masterCountries = CCPCountry.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+
+        if(context instanceof  Activity){
+            ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            int height = (int) (displayMetrics.heightPixels * 0.7);
+            int width = (int) (displayMetrics.widthPixels * 0.8);
+            dialog.getWindow().setLayout(width, height);
+        }
 
         //keyboard
         if (codePicker.isSearchAllowed() && codePicker.isDialogKeyboardAutoPopup()) {
