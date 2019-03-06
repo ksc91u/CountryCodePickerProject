@@ -832,7 +832,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_trinidad_and_tobago;
             case "tv": //tuvalu
                 return R.drawable.flag_tuvalu;
-            case "tw": //taiwan, province of china
+            case "tw": //taiwan
                 return R.drawable.flag_taiwan;
             case "tz": //tanzania, united republic of
                 return R.drawable.flag_tanzania;
