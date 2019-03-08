@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
@@ -82,6 +83,7 @@ class CountryCodeDialog {
         List<CCPCountry> masterCountries = CCPCountry.getCustomMasterCountryList(context, codePicker);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setContentView(R.layout.layout_picker_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         if(context instanceof  Activity){
             ((Activity)context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
