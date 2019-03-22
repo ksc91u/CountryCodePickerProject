@@ -113,7 +113,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
                             ccpCountry.setName(xmlPullParser.getAttributeValue(null, "name"));
                             countries.add(ccpCountry);
                         } else if (name.equals("ccp_dialog_title")) {
-                            tempDialogTitle = xmlPullParser.getAttributeValue(null, "translation");
+                            tempDialogTitle = context.getResources().getString(R.string.countryCode);
                         } else if (name.equals("ccp_dialog_search_hint_message")) {
                             tempSearchHint = xmlPullParser.getAttributeValue(null, "translation");
                         } else if (name.equals("ccp_dialog_no_result_ack_message")) {
