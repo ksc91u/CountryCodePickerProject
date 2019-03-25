@@ -14,62 +14,62 @@
             phone_code="all type" />
         <country
             name="MITH"
-            english_name="MITH"
+            english_name="mith"
             name_code="mith"
             phone_code="Mithril" />
         <country
             name="BNB"
-            english_name="BNB"
+            english_name="bnb"
             name_code="bnb"
             phone_code="Binance" />
         <country
             name="BTC"
-            english_name="BTC"
+            english_name="btc"
             name_code="btc"
             phone_code="Bitcoin" />
         <country
             name="DAI"
-            english_name="DAI"
+            english_name="dai"
             name_code="dai"
             phone_code="Dai" />
         <country
             name="ETH"
-            english_name="ETH"
+            english_name="eth"
             name_code="eth"
             phone_code="Ethereum" />
         <country
             name="LTC"
-            english_name="LTC"
+            english_name="ltc"
             name_code="ltc"
             phone_code="Litecoin" />
         <country
             name="MCX"
-            english_name="MCX"
+            english_name="mcx"
             name_code="mcx"
             phone_code="Machi X" />
         <country
             name="PAX"
-            english_name="PAX"
+            english_name="pax"
             name_code="pax"
             phone_code="Paxos Standard" />
         <country
             name="TUSD"
-            english_name="TUSD"
+            english_name="tusd"
             name_code="tusd"
             phone_code="True USD" />
         <country
             name="USDT"
-            english_name="USDT"
+            english_name="onniusdt"
             name_code="usdt"
             phone_code="Tether, Omni" />
         <country
             name="USDT"
-            english_name="USDT"
+            english_name="usdt"
             name_code="usdte"
             phone_code="Tether, ERC20" />
         <country
             name="USDC"
-            english_name="USDC"
+            english_name="usdc"
             name_code="usdc"
             phone_code="USD Coin" />
     </countries>
