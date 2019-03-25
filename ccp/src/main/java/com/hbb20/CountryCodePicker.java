@@ -68,7 +68,9 @@ public class CountryCodePicker extends RelativeLayout {
     PhoneNumberUtil phoneUtil;
     boolean showNameCode = true;
     boolean showPhoneCode = true;
+    boolean showPhoneCodeNoPlus = false;
     boolean ccpDialogShowPhoneCode = true;
+    boolean ccpDialogShowPhoneCodeNoPlus = true;
     boolean showFlag = true;
     boolean showFullName = false;
     boolean showFastScroller = true;
@@ -215,6 +217,9 @@ public class CountryCodePicker extends RelativeLayout {
 
             //show phone code on dialog
             ccpDialogShowPhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showPhoneCode, showPhoneCode);
+
+            //show phone code on dialog
+            ccpDialogShowPhoneCodeNoPlus = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showPhoneCodeNoPlus, showPhoneCode);
 
             //show name code on dialog
             ccpDialogShowNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccpDialog_showNameCode, true);
@@ -2216,7 +2221,8 @@ public class CountryCodePicker extends RelativeLayout {
         SWEDISH("sv"),
         TURKISH("tr"),
         UKRAINIAN("uk"),
-        UZBEK("uz");
+        UZBEK("uz"),
+        MITHRIL("zz");
 
         private String code;
         private String country;

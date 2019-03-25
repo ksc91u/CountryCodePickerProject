@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+    <messages>
+        <ccp_dialog_title translation="todo: update" />
+        <ccp_dialog_search_hint_message translation="todo: update" />
+        <ccp_dialog_no_result_ack_message translation='todo: update' />
+    </messages>
+
+    <countries>
+        <country
+            name="All"
+            english_name=""
+            name_code="all"
+            phone_code="all type" />
+        <country
+            name="MITH"
+            english_name="MITH"
+            name_code="mith"
+            phone_code="Mithril" />
+        <country
+            name="BNB"
+            english_name="BNB"
+            name_code="bnb"
+            phone_code="Binance" />
+        <country
+            name="BTC"
+            english_name="BTC"
+            name_code="btc"
+            phone_code="Bitcoin" />
+        <country
+            name="DAI"
+            english_name="DAI"
+            name_code="dai"
+            phone_code="Dai" />
+        <country
+            name="ETH"
+            english_name="ETH"
+            name_code="eth"
+            phone_code="Ethereum" />
+        <country
+            name="LTC"
+            english_name="LTC"
+            name_code="ltc"
+            phone_code="Litecoin" />
+        <country
+            name="MCX"
+            english_name="MCX"
+            name_code="mcx"
+            phone_code="Machi X" />
+        <country
+            name="PAX"
+            english_name="PAX"
+            name_code="pax"
+            phone_code="Paxos Standard" />
+        <country
+            name="TUSD"
+            english_name="TUSD"
+            name_code="tusd"
+            phone_code="True USD" />
+        <country
+            name="USDT"
+            english_name="USDT"
+            name_code="usdt"
+            phone_code="Tether, Omni" />
+        <country
+            name="USDT"
+            english_name="USDT"
+            name_code="usdte"
+            phone_code="Tether, ERC20" />
+        <country
+            name="USDC"
+            english_name="USDC"
+            name_code="usdc"
+            phone_code="USD Coin" />
+    </countries>
+</data>

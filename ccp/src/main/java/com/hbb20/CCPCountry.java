@@ -876,6 +876,31 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.flag_zambia;
             case "zw": //zimbabwe
                 return R.drawable.flag_zimbabwe;
+            case "mith":
+                return R.drawable.crypto_mith;
+            case "bnb":
+                return R.drawable.crypto_bnb;
+            case "btc":
+                return R.drawable.crypto_btc;
+            case "dai":
+                return R.drawable.crypto_dai;
+            case "eth":
+                return R.drawable.crypto_eth;
+            case "ltc":
+                return R.drawable.litecoin;
+            case "mcx":
+                return R.drawable.crypto_mcx;
+            case "pax":
+                return R.drawable.pax;
+            case "tusd":
+                return R.drawable.tusd;
+            case "usdte":
+                return R.drawable.crypto_usdte;
+            case "usdt":
+                return R.drawable.crypto_usdt;
+            case "usdc":
+                return R.drawable.usdc;
+
             default:
                 return R.drawable.flag_transparent;
         }

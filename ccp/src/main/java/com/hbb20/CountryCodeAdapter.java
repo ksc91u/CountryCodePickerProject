@@ -275,7 +275,11 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 } else {
                     textView_name.setText(CCPCountry.getName());
                 }
-                textView_code.setText("+" + CCPCountry.getPhoneCode());
+                if(codePicker.ccpDialogShowPhoneCodeNoPlus) {
+                    textView_code.setText(CCPCountry.getPhoneCode());
+                }else{
+                    textView_code.setText("+" + CCPCountry.getPhoneCode());
+                }
 
                 if (!codePicker.getCcpDialogShowFlag()) {
                     linearFlagHolder.setVisibility(View.GONE);

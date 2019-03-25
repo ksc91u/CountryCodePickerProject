@@ -52,6 +52,7 @@
         <attr name="ccpDialog_keyboardAutoPopup" format="boolean" />
         <attr name="ccpDialog_allowSearch" format="boolean" />
         <attr name="ccpDialog_showPhoneCode" format="boolean" />
+        <attr name="ccpDialog_showPhoneCodeNoPlus" format="boolean" />
         <attr name="ccpDialog_showNameCode" format="boolean" />
         <attr name="ccpDialog_showFlag" format="boolean" />
         <attr name="ccpDialog_showFastScroller" format="boolean" />
@@ -97,6 +98,7 @@
             <enum name="TURKISH" value="26" />
             <enum name="UKRAINIAN" value="27" />
             <enum name="UZBEK" value="28" />
+            <enum name="MITHRIL" value="29" />
         </attr>
 
         <attr name="ccp_countryAutoDetectionPref" format="enum">
