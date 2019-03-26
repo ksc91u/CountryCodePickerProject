@@ -103,6 +103,9 @@ public class CountryCodePicker extends RelativeLayout {
     boolean dialogKeyboardAutoPopup = true;
     boolean ccpClickable = true;
     boolean autoDetectLanguageEnabled = false, autoDetectCountryEnabled = false, numberAutoFormattingEnabled = true, hintExampleNumberEnabled = false;
+    String dialogTitle = null;
+    String searchHint = null;
+    String notFound = null;
     String xmlWidth = "notSet";
     TextWatcher validityTextWatcher;
     InternationalPhoneTextWatcher formattingTextWatcher;
@@ -250,6 +253,15 @@ public class CountryCodePicker extends RelativeLayout {
 
             //auto detect language
             autoDetectLanguageEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_autoDetectLanguage, false);
+
+            //dialog title from xml
+            dialogTitle = a.getString(R.styleable.CountryCodePicker_ccpDialog_title);
+
+            //search hint from xml
+            searchHint = a.getString(R.styleable.CountryCodePicker_ccpDialog_searchHint);
+
+            //not found hint from xml
+            notFound = a.getString(R.styleable.CountryCodePicker_ccpDialog_notFound);
 
             //detect country from area code
             detectCountryWithAreaCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_areaCodeDetectedCountry, true);
@@ -1409,10 +1421,16 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
+        if(dialogTitle != null && !dialogTitle.isEmpty()){
+            return dialogTitle;
+        }
         return CCPCountry.getDialogTitle(context, getLanguageToApply());
     }
 
     String getSearchHintText() {
+        if(searchHint != null && !searchHint.isEmpty()){
+            return searchHint;
+        }
         return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
     }
 
@@ -1420,6 +1438,9 @@ public class CountryCodePicker extends RelativeLayout {
      * @return translated text for "No Results Found" message.
      */
     String getNoResultFoundText() {
+        if(notFound != null && !notFound.isEmpty()){
+            return notFound;
+        }
         return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
     }
 

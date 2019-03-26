@@ -174,6 +174,7 @@ class CountryCodeDialog {
 
         //add messages to views
         textViewTitle.setText(codePicker.getDialogTitle());
+
         editText_search.setHint(codePicker.getSearchHintText());
         textView_noResult.setText(codePicker.getNoResultFoundText());
 

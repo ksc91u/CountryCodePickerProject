@@ -118,6 +118,9 @@
                                 app:ccpDialog_showNameCode="false"
                                 app:ccp_defaultNameCode="all"
                                 app:ccpDialog_showPhoneCodeNoPlus="true"
+                                app:ccpDialog_title="@string/app_name"
+                                app:ccpDialog_searchHint="@string/app_name"
+                                app:ccpDialog_notFound="@string/app_name"
                                 app:ccp_defaultLanguage="MITHRIL"
                                 app:ccp_autoDetectCountry="true"
                                 app:ccp_hintExampleNumber="true" />
