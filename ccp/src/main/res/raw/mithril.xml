@@ -59,7 +59,7 @@
             phone_code="True USD" />
         <country
             name="USDT"
-            english_name="onniusdt"
+            english_name="omniusdt"
             name_code="usdt"
             phone_code="Tether, Omni" />
         <country
