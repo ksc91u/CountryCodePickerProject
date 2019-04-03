@@ -60,12 +60,12 @@
         <country
             name="USDT"
             english_name="omniusdt"
-            name_code="usdt"
+            name_code="omniusdt"
             phone_code="Tether, Omni" />
         <country
             name="USDT"
             english_name="usdt"
-            name_code="usdte"
+            name_code="usdt"
             phone_code="Tether, ERC20" />
         <country
             name="USDC"

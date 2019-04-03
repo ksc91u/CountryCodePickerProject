@@ -894,9 +894,9 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.pax;
             case "tusd":
                 return R.drawable.tusd;
-            case "usdte":
-                return R.drawable.crypto_usdte;
             case "usdt":
+                return R.drawable.crypto_usdte;
+            case "omniusdt":
                 return R.drawable.crypto_usdt;
             case "usdc":
                 return R.drawable.usdc;
