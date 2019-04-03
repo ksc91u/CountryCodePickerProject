@@ -1313,7 +1313,7 @@ public class CountryCodePicker extends RelativeLayout {
     /**
      * @return comma separated custom master countries' name code. i.e "gb,us,nz,in,pk"
      */
-    String getCustomMasterCountriesParam() {
+    public String getCustomMasterCountriesParam() {
         return customMasterCountriesParam;
     }
 
