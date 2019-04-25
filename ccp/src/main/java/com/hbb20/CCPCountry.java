@@ -900,6 +900,8 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.crypto_usdt;
             case "usdc":
                 return R.drawable.usdc;
+            case "all":
+                return R.drawable.all;
 
             default:
                 return R.drawable.flag_transparent;
