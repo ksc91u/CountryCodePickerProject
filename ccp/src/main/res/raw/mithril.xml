@@ -72,5 +72,15 @@
             english_name="usdc"
             name_code="usdc"
             phone_code="USD Coin" />
+        <country
+            name="BCH"
+            english_name="bch"
+            name_code="bch"
+            phone_code="Bitcoin Cash" />
+        <country
+            name="XTZ"
+            english_name="xtz"
+            name_code="xtz"
+            phone_code="Tezos" />
     </countries>
 </data>
