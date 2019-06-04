@@ -288,7 +288,9 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 } else {
                     linearFlagHolder.setVisibility(View.VISIBLE);
                     if(CCPCountry.getFlagID() == R.drawable.none){
-                        Glide.with(imageViewFlag).load(Uri.parse(CCPCountry.flagUrl))
+                        System.out.println(">>>>1 " + CCPCountry.flagUrl);
+                        System.out.println(">>>>1 " + Uri.parse(CCPCountry.flagUrl));
+                        GlideApp.with(imageViewFlag).load(Uri.parse(CCPCountry.flagUrl))
                                 .into(imageViewFlag);
                     }else {
                         imageViewFlag.setImageResource(CCPCountry.getFlagID());
