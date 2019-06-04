@@ -2,6 +2,7 @@ package com.hbb20;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.futuremind.recyclerviewfastscroll.SectionTitleProvider;
 
 import java.util.ArrayList;
@@ -285,7 +287,12 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                     linearFlagHolder.setVisibility(View.GONE);
                 } else {
                     linearFlagHolder.setVisibility(View.VISIBLE);
-                    imageViewFlag.setImageResource(CCPCountry.getFlagID());
+                    if(CCPCountry.getFlagID() == R.drawable.none){
+                        Glide.with(imageViewFlag).load(Uri.parse(CCPCountry.flagUrl))
+                                .into(imageViewFlag);
+                    }else {
+                        imageViewFlag.setImageResource(CCPCountry.getFlagID());
+                    }
                 }
             }else{
                 divider.setVisibility(View.VISIBLE);

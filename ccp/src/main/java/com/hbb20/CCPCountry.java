@@ -55,6 +55,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
     String phoneCode;
     String name, englishName;
     int flagResID = DEFAULT_FLAG_RES;
+    String flagUrl = "";
 
     public CCPCountry() {
 
@@ -65,6 +66,15 @@ public class CCPCountry implements Comparable<CCPCountry> {
         this.phoneCode = phoneCode;
         this.name = name;
         this.flagResID = flagResID;
+        this.flagUrl = "";
+    }
+
+    public CCPCountry(String nameCode, String phoneCode, String name, int flagResID, String flagUrl) {
+        this.nameCode = nameCode;
+        this.phoneCode = phoneCode;
+        this.name = name;
+        this.flagResID = flagResID;
+        this.flagUrl = flagUrl;
     }
 
     static CountryCodePicker.Language getLoadedLibraryMasterListLanguage() {
@@ -81,6 +91,12 @@ public class CCPCountry implements Comparable<CCPCountry> {
 
     static void setLoadedLibraryMaterList(List<CCPCountry> loadedLibraryMaterList) {
         CCPCountry.loadedLibraryMaterList = loadedLibraryMaterList;
+    }
+
+    static void replaceCountryList(List<CCPCountry> countries){
+        loadedLibraryMaterList.clear();
+        loadedLibraryMaterList.addAll(countries);
+        Collections.sort(loadedLibraryMaterList);
     }
 
     /**
@@ -909,7 +925,11 @@ public class CCPCountry implements Comparable<CCPCountry> {
                 return R.drawable.all;
 
             default:
-                return R.drawable.flag_transparent;
+                if(CCPCountry.flagUrl.isEmpty()) {
+                    return R.drawable.flag_transparent;
+                }else{
+                    return R.drawable.none;
+                }
         }
     }
 

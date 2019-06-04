@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -25,6 +26,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -790,7 +793,12 @@ public class CountryCodePicker extends RelativeLayout {
             onCountryChangeListener.onCountrySelected();
         }
 
-        imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
+        if(selectedCCPCountry.getFlagID() == R.drawable.none) {
+            Glide.with(imageViewFlag).load(Uri.parse(selectedCCPCountry.flagUrl))
+                    .into(imageViewFlag);
+        }else {
+            imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
+        }
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
 
         updateFormattingTextWatcher();
