@@ -794,8 +794,6 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         if(selectedCCPCountry.getFlagID() == R.drawable.none) {
-            System.out.println(">>>> " + selectedCCPCountry.flagUrl);
-            System.out.println(">>>> " + Uri.parse(selectedCCPCountry.flagUrl));
             GlideApp.with(imageViewFlag).load(Uri.parse(selectedCCPCountry.flagUrl))
                     .into(imageViewFlag);
         }else {

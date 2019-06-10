@@ -93,7 +93,7 @@ public class CCPCountry implements Comparable<CCPCountry> {
         CCPCountry.loadedLibraryMaterList = loadedLibraryMaterList;
     }
 
-    static void replaceCountryList(List<CCPCountry> countries){
+    public static void replaceCountryList(List<CCPCountry> countries){
         loadedLibraryMaterList.clear();
         loadedLibraryMaterList.addAll(countries);
         Collections.sort(loadedLibraryMaterList);
