@@ -3,6 +3,7 @@ package com.hbb20
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.PictureDrawable
 import android.os.Build
 import android.util.Log
 import com.bumptech.glide.*
@@ -16,7 +17,11 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
+import com.caverock.androidsvg.SVG
 import okhttp3.OkHttpClient
+import svg.SvgDecoder
+import svg.SvgDrawableTranscoder
+import java.io.InputStream
 
 @GlideModule
 class GlideModule : AppGlideModule() {
@@ -47,6 +52,9 @@ class GlideModule : AppGlideModule() {
                             .build()
                     chain.proceed(request)
                 }
+
+        registry.register(SVG::class.java, PictureDrawable::class.java, SvgDrawableTranscoder())
+                .append(InputStream::class.java, SVG::class.java, SvgDecoder())
 
     }
 

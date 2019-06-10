@@ -259,12 +259,6 @@ class CountryCodeDialog {
             }
         }
 
-
-        List<CCPCountry> list = new ArrayList<CCPCountry>();
-        list.add(new CCPCountry("test","110", "TestCountry", R.drawable.none, "https://chasing-coins.com/coin/logo/BCH"));
-
-        CCPCountry.replaceCountryList(list);
-
         dialog.show();
         if (codePicker.getDialogEventsListener() != null) {
             codePicker.getDialogEventsListener().onCcpDialogOpen(dialog);
