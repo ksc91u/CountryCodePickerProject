@@ -19,7 +19,7 @@ import java.io.InputStream
 
 fun RequestManager.loadWithOption(uri: Uri, view: ImageView): ViewTarget<ImageView, Drawable> {
     var requestOptions = RequestOptions()
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .diskCacheStrategy(DiskCacheStrategy.DATA)
             .timeout(5 * 1000)
             .skipMemoryCache(false)
             .priority(Priority.HIGH)

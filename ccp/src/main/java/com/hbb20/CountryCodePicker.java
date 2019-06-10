@@ -803,7 +803,7 @@ public class CountryCodePicker extends RelativeLayout {
         }
 
         RequestOptions requestOptions = new RequestOptions()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .timeout(5 * 1000)
                 .skipMemoryCache(false)
                 .priority(Priority.HIGH);
