@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.telephony.PhoneNumberUtils;
@@ -28,7 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
+import com.caverock.androidsvg.SVG;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -36,6 +43,8 @@ import java.util.Locale;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;
+import svg.SvgDecoder;
+import svg.SvgDrawableTranscoder;
 
 /**
  * Created by hbb20 on 11/1/16.
@@ -793,10 +802,27 @@ public class CountryCodePicker extends RelativeLayout {
             onCountryChangeListener.onCountrySelected();
         }
 
-        if(selectedCCPCountry.getFlagID() == R.drawable.none) {
-            GlideApp.with(imageViewFlag).load(Uri.parse(selectedCCPCountry.flagUrl))
+        RequestOptions requestOptions = new RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .timeout(5 * 1000)
+                .skipMemoryCache(false)
+                .priority(Priority.HIGH);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            requestOptions = requestOptions.disallowHardwareConfig();
+        }
+
+        if (selectedCCPCountry.getFlagID() == R.drawable.none) {
+            Glide.get(imageViewFlag.getContext())
+                    .getRegistry()
+                    .register(SVG.class, PictureDrawable.class, new SvgDrawableTranscoder())
+                    .append(InputStream.class, SVG.class, new SvgDecoder());
+
+            Glide.with(imageViewFlag)
+                    .applyDefaultRequestOptions(requestOptions)
+                    .load(Uri.parse(selectedCCPCountry.flagUrl))
+                    .transition(DrawableTransitionOptions.withCrossFade(200))
                     .into(imageViewFlag);
-        }else {
+        } else {
             imageViewFlag.setImageResource(selectedCCPCountry.getFlagID());
         }
         //        Log.d(TAG, "Setting selected country:" + selectedCountry.logString());
@@ -1429,14 +1455,14 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     String getDialogTitle() {
-        if(dialogTitle != null && !dialogTitle.isEmpty()){
+        if (dialogTitle != null && !dialogTitle.isEmpty()) {
             return dialogTitle;
         }
         return CCPCountry.getDialogTitle(context, getLanguageToApply());
     }
 
     String getSearchHintText() {
-        if(searchHint != null && !searchHint.isEmpty()){
+        if (searchHint != null && !searchHint.isEmpty()) {
             return searchHint;
         }
         return CCPCountry.getSearchHintMessage(context, getLanguageToApply());
@@ -1446,7 +1472,7 @@ public class CountryCodePicker extends RelativeLayout {
      * @return translated text for "No Results Found" message.
      */
     String getNoResultFoundText() {
-        if(notFound != null && !notFound.isEmpty()){
+        if (notFound != null && !notFound.isEmpty()) {
             return notFound;
         }
         return CCPCountry.getNoResultFoundAckMessage(context, getLanguageToApply());
