@@ -15,9 +15,10 @@ import com.bumptech.glide.request.target.ViewTarget
 import com.caverock.androidsvg.SVG
 import svg.SvgDecoder
 import svg.SvgDrawableTranscoder
+import svg.SvgSoftwareLayerSetter
 import java.io.InputStream
 
-fun RequestManager.loadWithOption(uri: Uri, view: ImageView): ViewTarget<ImageView, Drawable> {
+fun RequestManager.loadWithOption(uri: Uri, view: ImageView): ViewTarget<ImageView, PictureDrawable> {
     var requestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .timeout(5 * 1000)
@@ -27,6 +28,10 @@ fun RequestManager.loadWithOption(uri: Uri, view: ImageView): ViewTarget<ImageVi
         requestOptions = requestOptions.disallowHardwareConfig()
     }
     return this.applyDefaultRequestOptions(requestOptions)
+            .`as`(PictureDrawable::class.java)
+            .diskCacheStrategy(DiskCacheStrategy.DATA)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .listener(SvgSoftwareLayerSetter())
             .load(uri)
             .transition(DrawableTransitionOptions.withCrossFade(200))
             .into(view)

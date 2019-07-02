@@ -14,11 +14,14 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.caverock.androidsvg.SVG
 import com.futuremind.recyclerviewfastscroll.SectionTitleProvider
 import ext.loadWithOption
 import svg.SvgDecoder
 import svg.SvgDrawableTranscoder
+import svg.SvgSoftwareLayerSetter
 import java.io.InputStream
 import java.util.*
 
@@ -250,9 +253,6 @@ internal class CountryCodeAdapter(var context: Context, countries: List<CCPCount
                 } else {
                     linearFlagHolder.visibility = View.VISIBLE
                     if (CCPCountry.flagID == R.drawable.none) {
-                        Glide.get(imageViewFlag.context).registry.register(SVG::class.java, PictureDrawable::class.java, SvgDrawableTranscoder())
-                                .append(InputStream::class.java, SVG::class.java, SvgDecoder())
-
                         Glide.with(imageViewFlag)
                                 .loadWithOption(Uri.parse(CCPCountry.flagUrl), imageViewFlag)
                     } else {
